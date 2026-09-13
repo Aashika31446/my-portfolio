@@ -38,6 +38,67 @@ const WhatIDo = () => {
         <div className="what-box-in">
           <div className="what-border2">
             <svg width="100%">
+              <line x1="0" y1="0" x2="0" y2="100%" stroke="white" strokeWidth="2" strokeDasharray="7,7" />
+              <line x1="100%" y1="0" x2="100%" y2="100%" stroke="white" strokeWidth="2" strokeDasharray="7,7" />
+            </svg>
+          </div>
+          <div className="what-content what-noTouch" ref={(el) => setRef(el, 0)}>
+            <div className="what-border1">
+              <svg height="100%">
+                <line x1="0" y1="0" x2="100%" y2="0" stroke="white" strokeWidth="2" strokeDasharray="6,6" />
+                <line x1="0" y1="100%" x2="100%" y2="100%" stroke="white" strokeWidth="2" strokeDasharray="6,6" />
+              </svg>
+            </div>
+            <div className="what-corner"></div>
+            <div className="what-content-in">
+              <h3>AI &amp; DATA</h3>
+              <h4>Intelligent Systems &amp; Data-Driven Solutions</h4>
+              <p>
+                I build practical AI and data solutions using machine learning, RAG, LLMs, and Python—turning data and knowledge into useful applications.
+              </p>
+              <h5>Skillset &amp; tools</h5>
+              <div className="what-content-flex">
+                <div className="what-tags">Machine Learning</div>
+                <div className="what-tags">RAG &amp; LLMs</div>
+                <div className="what-tags">Python</div>
+                <div className="what-tags">Data Analysis</div>
+                <div className="what-tags">Data Visualization</div>
+                <div className="what-tags">NLP</div>
+              </div>
+              <div className="what-arrow"></div>
+            </div>
+          </div>
+          <div className="what-content what-noTouch" ref={(el) => setRef(el, 1)}>
+            <div className="what-border1">
+              <svg height="100%">
+                <line x1="0" y1="100%" x2="100%" y2="100%" stroke="white" strokeWidth="2" strokeDasharray="6,6" />
+              </svg>
+            </div>
+            <div className="what-corner"></div>
+            <div className="what-content-in">
+              <h3>BUILD &amp; ENGINEER</h3>
+              <h4>From Ideas to Working Products</h4>
+              <p>
+                I develop production-oriented applications with Python, APIs, databases, and modern backend technologies—focused on solving real-world problems.
+              </p>
+              <h5>Skillset &amp; tools</h5>
+              <div className="what-content-flex">
+                <div className="what-tags">Python &amp; C++</div>
+                <div className="what-tags">FastAPI</div>
+                <div className="what-tags">SQL &amp; PostgreSQL</div>
+                <div className="what-tags">APIs</div>
+                <div className="what-tags">Git &amp; GitHub</div>
+                <div className="what-tags">Docker</div>
+                <div className="what-tags">Problem Solving</div>
+              </div>
+              <div className="what-arrow"></div>
+            </div>
+          </div>
+        </div>
+
+        <div className="what-box-in">
+          <div className="what-border2">
+            <svg width="100%">
               <line
                 x1="0"
                 y1="0"
@@ -60,7 +121,7 @@ const WhatIDo = () => {
           </div>
           <div
             className="what-content what-noTouch"
-            ref={(el) => setRef(el, 0)}
+            ref={(el) => setRef(el, 2)}
           >
             <div className="what-border1">
               <svg height="100%">
@@ -107,7 +168,7 @@ const WhatIDo = () => {
           </div>
           <div
             className="what-content what-noTouch"
-            ref={(el) => setRef(el, 1)}
+            ref={(el) => setRef(el, 3)}
           >
             <div className="what-border1">
               <svg height="100%">

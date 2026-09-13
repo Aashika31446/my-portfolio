@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import "./styles/Loading.css";
 import { useLoading } from "../context/LoadingProvider";
 
@@ -9,8 +9,28 @@ const Loading = ({ percent }: { percent: number }) => {
   const [loaded, setLoaded] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
   const [clicked, setClicked] = useState(false);
+  const [hasStarted, setHasStarted] = useState(false);
+  const audioRef = useRef<HTMLAudioElement | null>(null);
 
-  if (percent >= 100) {
+  useEffect(() => {
+    audioRef.current = new Audio("/loading-music.mp3");
+    audioRef.current.loop = true;
+    return () => {
+      if (audioRef.current) {
+        audioRef.current.pause();
+        audioRef.current = null;
+      }
+    };
+  }, []);
+
+  const handleStart = () => {
+    setHasStarted(true);
+    if (audioRef.current) {
+      audioRef.current.play().catch(e => console.log("Audio play failed", e));
+    }
+  };
+
+  if (percent >= 100 && hasStarted) {
     setTimeout(() => {
       setLoaded(true);
       setTimeout(() => {
@@ -23,6 +43,18 @@ const Loading = ({ percent }: { percent: number }) => {
     import("./utils/initialFX").then((module) => {
       if (isLoaded) {
         setClicked(true);
+        if (audioRef.current) {
+          let vol = 1;
+          const fadeout = setInterval(() => {
+            if (vol > 0.1) {
+              vol -= 0.1;
+              if (audioRef.current) audioRef.current.volume = vol;
+            } else {
+              clearInterval(fadeout);
+              if (audioRef.current) audioRef.current.pause();
+            }
+          }, 100);
+        }
         setTimeout(() => {
           if (module.initialFX) {
             module.initialFX();
@@ -44,9 +76,38 @@ const Loading = ({ percent }: { percent: number }) => {
 
   return (
     <>
+      {!hasStarted && (
+        <div style={{
+          position: "fixed", top: 0, left: 0, width: "100%", height: "100%", 
+          zIndex: 999999999999, backgroundColor: "var(--backgroundColor)", 
+          display: "flex", justifyContent: "center", alignItems: "center"
+        }}>
+          <button 
+            onClick={handleStart}
+            style={{
+              padding: "15px 40px", fontSize: "16px", fontWeight: "600",
+              background: "transparent", color: "var(--accentColor)",
+              border: "1px solid var(--accentColor)", borderRadius: "50px",
+              cursor: "pointer", textTransform: "uppercase", letterSpacing: "2px",
+              boxShadow: "0 0 15px rgba(94, 234, 212, 0.3)",
+              transition: "all 0.3s ease"
+            }}
+            onMouseOver={(e) => {
+              e.currentTarget.style.background = "var(--accentColor)";
+              e.currentTarget.style.color = "var(--backgroundColor)";
+            }}
+            onMouseOut={(e) => {
+              e.currentTarget.style.background = "transparent";
+              e.currentTarget.style.color = "var(--accentColor)";
+            }}
+          >
+            Start Experience
+          </button>
+        </div>
+      )}
       <div className="loading-header">
         <a href="/#" className="loader-title" data-cursor="disable">
-          AM
+          AK
         </a>
         <div className={`loaderGame ${clicked && "loader-out"}`}>
           <div className="loaderGame-container">

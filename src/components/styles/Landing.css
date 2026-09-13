@@ -14,6 +14,36 @@
   max-width: var(--cMaxWidth);
 }
 
+.landing-profile-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  width: 350px;
+  height: 350px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.25) 0%, rgba(34, 211, 238, 0.15) 40%, rgba(10,14,23,0) 70%);
+  animation: floatProfile 6s ease-in-out infinite;
+}
+
+.landing-profile-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0px 0px 20px rgba(34, 211, 238, 0.4));
+  border-radius: 50%;
+}
+
+@keyframes floatProfile {
+  0% { transform: translate(-50%, -50%) translateY(0px); }
+  50% { transform: translate(-50%, -50%) translateY(-15px); }
+  100% { transform: translate(-50%, -50%) translateY(0px); }
+}
+
 .landing-circle1 {
   top: 0%;
   left: 0%;
@@ -226,11 +256,18 @@
   flex-wrap: nowrap;
   text-transform: uppercase;
   letter-spacing: 2px;
+  overflow: hidden;
+}
+
+.landing-h2-info {
+  white-space: nowrap;
 }
 
 .landing-h2-info-1 {
   position: absolute;
   top: 0;
+  left: 0;
+  white-space: nowrap;
 }
 
 h2.landing-info-h2 {
@@ -242,11 +279,18 @@ h2.landing-info-h2 {
   font-weight: 600;
   position: relative;
   margin-left: -5px;
+  overflow: hidden;
+}
+
+.landing-h2-1 {
+  white-space: nowrap;
 }
 
 .landing-h2-2 {
   position: absolute;
   top: 0;
+  left: 0;
+  white-space: nowrap;
 }
 
 .landing-info-h2::after {

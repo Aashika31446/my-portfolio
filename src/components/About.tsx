@@ -3,14 +3,20 @@ import "./styles/About.css";
 const About = () => {
   return (
     <div className="about-section" id="about">
+      <div className="about-photo-wrapper">
+        <div className="about-photo-container">
+          <div className="about-photo-glow"></div>
+          <img 
+            src="/images/aashika-profile.png" 
+            alt="Aashika Kumari" 
+            className="about-photo"
+          />
+        </div>
+      </div>
       <div className="about-me">
         <h3 className="title">About Me</h3>
         <p className="para">
-          I am currently co-founder of CallHQ.ai, building real-time voice AI for
-          businesses. I am a technologist at heart with strong business judgment—
-          I enjoy going from product strategy to hands-on engineering. My background
-          spans leadership at Adobe, founding Broki and CallHQ, and shipping
-          full-stack products end to end.
+          Aspiring Software Developer pursuing B.Tech in Computer Science (AI & ML) with hands-on experience in Python, Java, C++, React, Flask, SQL, and Machine Learning. Strong foundation in Data Structures, Algorithms, and Object-Oriented Programming. Passionate about building scalable software solutions and continuously learning modern technologies.
         </p>
       </div>
     </div>

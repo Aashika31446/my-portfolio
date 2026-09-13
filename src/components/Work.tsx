@@ -1,37 +1,33 @@
 import { useState, useCallback } from "react";
 import "./styles/Work.css";
 import WorkImage from "./WorkImage";
-import { MdArrowBack, MdArrowForward } from "react-icons/md";
+import { MdArrowBack, MdArrowForward, MdArrowOutward } from "react-icons/md";
 
 const projects = [
   {
-    title: "CallHQ",
-    category: "Voice AI Calling Platform",
-    tools: "Voice AI, Calling Automation, CRM Integrations",
-    image: "/images/callhq.png",
-    link: "https://callhq.ai",
+    title: "RAG Based AI Teaching Assistant",
+    category: "AI Teaching Assistant",
+    tools: "Python, FastAPI, LangChain, ChromaDB, PostgreSQL, React",
+    description: [
+      "Built an AI-powered teaching assistant to answer student queries using course materials.",
+      "Implemented Retrieval-Augmented Generation (RAG) to retrieve relevant information from PDFs and lecture notes.",
+      "Improved response accuracy by grounding answers in course-specific knowledge."
+    ],
+    image: "/images/rag-teaching-assistant.png",
+    link: "https://edu-ai-omega-roan.vercel.app/login",
   },
   {
-    title: "Whatsapp Automation",
-    category: "WABA Application",
-    tools: "WhatsApp Business API, Workflow Automation, Notifications",
-    image: "/images/whatsapp.png",
-    link: "https://whatsapp.callhq.ai",
-  },
-  {
-    title: "Broki",
-    category: "Real Estate Platform for FnB Industry",
-    tools: "Property Discovery, Lead Management, Marketplace Workflows",
-    image: "/images/broki.png",
-    link: "https://broki.in",
-  },
-  {
-    title: "Orrdr.com",
-    category: "Ecommerce Platform and Mobile App",
-    tools: "Ecommerce, Mobile Experience, Order Management",
-    image: "/images/orrdr.png",
-    link: "https://orrdr.com",
-  },
+    title: "CuraMind – AI Medical Report Assistant",
+    category: "AI Healthcare Assistant",
+    tools: "Python, FastAPI, React, Supabase, Groq, LangChain, PostgreSQL, Qdrant, Git",
+    description: [
+      "Developed an AI-powered healthcare assistant that analyzes blood test reports and provides simplified explanations.",
+      "Implemented secure authentication, report uploads, conversational chat, and persistent chat history.",
+      "Integrated LLMs with RAG for personalized report analysis and follow-up queries."
+    ],
+    image: "/images/curamind-project.png",
+    link: "https://curamind-mu.vercel.app/",
+  }
 ];
 
 const Work = () => {
@@ -106,10 +102,25 @@ const Work = () => {
                         <p className="carousel-category">
                           {project.category}
                         </p>
-                        <div className="carousel-tools">
-                          <span className="tools-label">Tools & Features</span>
+                        <ul className="carousel-description" style={{ fontSize: "14px", color: "#a0a0a0", marginTop: "10px", paddingLeft: "20px" }}>
+                          {project.description.map((point, i) => (
+                            <li key={i} style={{ marginBottom: "5px" }}>{point}</li>
+                          ))}
+                        </ul>
+                        <div className="carousel-tools" style={{ marginTop: "15px" }}>
+                          <span className="tools-label">Tech Stack</span>
                           <p>{project.tools}</p>
                         </div>
+                        {project.link && (
+                          <a 
+                            href={project.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="carousel-action-link"
+                          >
+                            View Live Project <MdArrowOutward />
+                          </a>
+                        )}
                       </div>
                     </div>
                     <div className="carousel-image-wrapper">

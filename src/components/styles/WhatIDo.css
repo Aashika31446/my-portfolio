@@ -12,17 +12,24 @@
   z-index: 9;
 }
 .what-box {
-  width: 50%;
+  width: 30%;
   display: flex;
   justify-content: center;
   position: relative;
   z-index: 9;
 }
+.what-box:nth-child(2) {
+  width: 70%;
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+  justify-content: flex-start;
+}
 .what-box h2 {
   font-size: calc(4vw + 25px);
   line-height: calc(4vw + 20px);
   font-weight: 600;
-  margin-right: 10%;
+  margin-right: 5%;
   margin-bottom: 100px;
 }
 
@@ -35,7 +42,7 @@
 .what-box-in {
   flex-direction: column;
   height: 500px;
-  margin-left: 200px;
+  margin-left: 0px;
   position: relative;
   display: none;
 }
@@ -216,6 +223,61 @@
   font-family: "Geist", sans-serif;
   margin-bottom: 5px;
 }
+
+/* Unique Card Colors */
+.what-box-in:nth-child(1) {
+  --column-color: #ec4899; /* Pink for Left Column */
+}
+.what-box-in:nth-child(2) {
+  --column-color: #14b8a6; /* Teal for Right Column */
+}
+.what-box-in:nth-child(1) .what-content:nth-child(2) {
+  --card-color: #ec4899; /* Pink for AI & Data */
+}
+.what-box-in:nth-child(1) .what-content:nth-child(3) {
+  --card-color: #8b5cf6; /* Purple for Build & Engineer */
+}
+.what-box-in:nth-child(2) .what-content:nth-child(2) {
+  --card-color: #14b8a6; /* Teal for AI & Automation */
+}
+.what-box-in:nth-child(2) .what-content:nth-child(3) {
+  --card-color: #f59e0b; /* Orange for Build & Scale */
+}
+
+/* Apply the card color to elements */
+.what-content h3 {
+  color: var(--card-color, #fff);
+}
+.what-border2 svg line {
+  stroke: var(--column-color, #fff);
+}
+.what-border1 svg line {
+  stroke: var(--card-color, #fff);
+}
+.what-content::before,
+.what-corner::before,
+.what-content::after,
+.what-corner::after {
+  border-color: var(--card-color, #fff);
+  box-shadow: 0 0 8px var(--card-color, transparent);
+}
+.what-arrow {
+  border-color: var(--card-color, #fff);
+  box-shadow: 0 0 5px var(--card-color, transparent);
+}
+.what-arrow::before {
+  border-color: var(--card-color, #fff);
+}
+.what-tags {
+  border-color: var(--card-color, #ffffff50);
+  background-color: transparent;
+  color: #fff;
+}
+.what-content:hover .what-tags,
+.what-content-active .what-tags {
+  box-shadow: 0 0 5px var(--card-color, transparent);
+}
+
 @keyframes whatBorders {
   80% {
     opacity: 0.8;
@@ -289,6 +351,12 @@
     padding: 50px 0px;
     padding-bottom: 50px;
   }
+  .what-box:nth-child(2) {
+    flex-direction: column;
+    gap: 50px;
+    width: 100%;
+    align-items: center;
+  }
   .what-box-in {
     height: 500px;
     margin-left: -50px;
@@ -326,7 +394,7 @@
     justify-content: left;
   }
   .what-box:last-child {
-    height: 500px;
+    height: auto;
   }
   .what-box {
     width: 500px;

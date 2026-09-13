@@ -8,7 +8,7 @@
   opacity: 1;
   height: auto;
   margin: auto;
-  margin-bottom: 250px;
+  margin-bottom: 0px;
   padding: 120px 0px;
 }
 
@@ -17,7 +17,7 @@
   line-height: 70px;
   font-weight: 400;
   text-align: center;
-  background: linear-gradient(0deg, #0d9488, #ffffff);
+  background: linear-gradient(135deg, #ffffff 40%, #ec4899, #8b5cf6, #14b8a6);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -41,7 +41,33 @@
 .career-info-box {
   display: flex;
   justify-content: space-between;
+  align-items: flex-start;
   margin-bottom: 50px;
+}
+
+@media only screen and (min-width: 901px) {
+  /* The timeline is the 1st child, so the 1st box is nth-child(2) */
+  .career-info-box:nth-child(odd) {
+    flex-direction: row-reverse;
+  }
+  
+  /* Left side content (Title in Row 1, Text in Row 2) */
+  .career-info-box:nth-child(even) .career-info-in,
+  .career-info-box:nth-child(odd) p,
+  .career-info-box:nth-child(odd) .achievement-text-wrapper {
+    text-align: right;
+    justify-content: flex-end;
+    align-items: flex-end;
+  }
+
+  /* Right side content (Text in Row 1, Title in Row 2) */
+  .career-info-box:nth-child(even) p,
+  .career-info-box:nth-child(even) .achievement-text-wrapper,
+  .career-info-box:nth-child(odd) .career-info-in {
+    text-align: left;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
 }
 
 .career-info-box p {
@@ -49,6 +75,17 @@
   font-size: 18px;
   font-weight: 300;
   margin: 0;
+}
+
+.achievement-badge {
+  max-width: 280px; /* slightly larger for photos */
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  margin-top: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  object-fit: contain;
 }
 
 .career-info-in {
@@ -82,6 +119,21 @@
   color: var(--accentColor);
 }
 
+/* Unique Vibrant Colors for Zig-Zag Timeline */
+.career-info-box:nth-child(2) h4 { color: #3b82f6; } /* Languages - Blue */
+
+.career-info-box:nth-child(3) h4 { color: #ec4899; } /* Frontend - Pink */
+
+.career-info-box:nth-child(4) h4 { color: #8b5cf6; } /* Backend - Purple */
+
+.career-info-box:nth-child(5) h4 { color: #10b981; } /* Database - Green */
+
+.career-info-box:nth-child(6) h4 { color: #f59e0b; } /* Data Vis - Orange */
+
+.career-info-box:nth-child(7) h4 { color: #06b6d4; } /* Tools - Cyan */
+
+.career-info-box:nth-child(8) h4 { color: #eab308; } /* Soft Skills - Yellow */
+
 .career-timeline {
   position: absolute;
   top: -50px;
@@ -90,9 +142,11 @@
   width: 3px;
   height: 100%;
   background-image: linear-gradient(to top,
-      #14b8a6 20%,
-      var(--accentColor) 50%,
-      transparent 95%);
+      #3b82f6 10%,
+      #8b5cf6 40%,
+      #ec4899 80%,
+      transparent 100%);
+  border-radius: 50px;
   max-height: 0%;
 }
 
@@ -101,12 +155,12 @@
   bottom: 0;
   left: 50%;
   transform: translate(-50%, 50%);
-  background-color: #14b8a6;
+  background-color: #ec4899;
   width: 10px;
   height: 10px;
   border-radius: 50px;
-  box-shadow: 0px 0px 5px 2px #67e8f9, 0px 0px 15px 8px #5eead4,
-    0px 0px 110px 20px #a5f3fc;
+  box-shadow: 0px 0px 5px 2px #ec4899, 0px 0px 15px 8px #d946ef,
+    0px 0px 80px 20px #f0abfc;
   animation: timeline 0.8s linear infinite forwards;
 }
 
