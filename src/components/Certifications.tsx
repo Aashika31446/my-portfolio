@@ -3,7 +3,7 @@ import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import "./styles/Career.css";
 import "./styles/Work.css"; // For carousel-action-link styling
-import { MdArrowOutward } from "react-icons/md";
+
 
 gsap.registerPlugin(ScrollTrigger);
 
