@@ -4,7 +4,7 @@ This repository contains the source code for my personal 3D interactive portfoli
 
 It is designed to provide a cinematic, immersive experience featuring an animated 3D environment, custom audio transitions, responsive scroll animations, and a showcase of my projects in Software Engineering, AI/ML, and Data Analytics.
 
-Live site: [Insert your Vercel Link Here](https://vercel.com)
+Live site: [https://aashika-portfolio-ten.vercel.app/](https://aashika-portfolio-ten.vercel.app/)
 
 ## ? Features
 
