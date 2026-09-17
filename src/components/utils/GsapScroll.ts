@@ -38,13 +38,7 @@ export function setLayoutTimeline() {
 
     tl2
       .to(".about-section", { y: "30%", duration: 6 }, 0)
-      .to(".about-section", { opacity: 0, delay: 3, duration: 2 }, 0)
-      .fromTo(
-        ".what-box-in",
-        { display: "none" },
-        { display: "flex", duration: 0.1, delay: 6 },
-        0
-      );
+      .to(".about-section", { opacity: 0, delay: 3, duration: 2 }, 0);
 
     tl3
       .fromTo(".whatIDO", { y: 0 }, { y: "15%", duration: 2 }, 0);
@@ -56,7 +50,6 @@ export function setLayoutTimeline() {
         end: "bottom top",
       },
     });
-    tM2.to(".what-box-in", { display: "flex", duration: 0.1, delay: 0 }, 0);
   }
 }
 
