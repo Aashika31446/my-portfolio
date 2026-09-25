@@ -15,17 +15,17 @@ const Landing = ({ children }: PropsWithChildren) => {
             </h1>
           </div>
           <div className="landing-info">
-            <h3>I am a</h3>
+            <h3>I build</h3>
             <h2 className="landing-info-h2">
-              <div className="landing-h2-1">Software</div>
-              <div className="landing-h2-2">Fullstack</div>
+              <div className="landing-h2-1">IDEAS</div>
+              <div className="landing-h2-2">Smart</div>
             </h2>
             <h2>
-              <div className="landing-h2-info">Engineer</div>
-              <div className="landing-h2-info-1">Developer</div>
+              <div className="landing-h2-info">into REALITY</div>
+              <div className="landing-h2-info-1">AUTOMATIONS</div>
             </h2>
             <div style={{ marginTop: "1rem", maxWidth: "400px", color: "#a0a0a0", fontSize: "16px", lineHeight: "1.5", fontWeight: "300" }}>
-              <p style={{ margin: 0 }}>Software Engineer & AI/ML Enthusiast building intelligent, user-focused solutions that solve real-world problems.</p>
+              <p style={{ margin: 0 }}>A Computer Science student combining modern web technologies, AI/ML, and problem-solving to transform ideas into practical digital solutions. I focus on learning continuously and creating solutions that are simple, useful, and reliable.</p>
             </div>
           </div>
         </div>

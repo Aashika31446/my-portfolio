@@ -43,7 +43,7 @@ export function setLayoutTimeline() {
     tl3
       .fromTo(".whatIDO", { y: 0 }, { y: "15%", duration: 2 }, 0);
   } else {
-    const tM2 = gsap.timeline({
+    gsap.timeline({
       scrollTrigger: {
         trigger: ".what-box-in",
         start: "top 70%",
