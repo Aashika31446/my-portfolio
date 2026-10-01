@@ -1,5 +1,7 @@
 import { PropsWithChildren } from "react";
 import "./styles/Landing.css";
+import { SiPython, SiReact, SiFastapi, SiPytorch, SiPostgresql } from "react-icons/si";
+import { FaBrain } from "react-icons/fa";
 
 const Landing = ({ children }: PropsWithChildren) => {
   return (
@@ -30,6 +32,35 @@ const Landing = ({ children }: PropsWithChildren) => {
           </div>
         </div>
         <div className="landing-profile-container">
+          {/* Subtle Ambient Behind Glow */}
+          <div className="profile-ambient-glow"></div>
+
+          {/* Orbit Track 1 (Slow clockwise rotation) */}
+          <div className="orbit-track orbit-track-1">
+            <div className="orbit-item orbit-item-1" title="Python">
+              <SiPython style={{ color: "#38bdf8" }} />
+            </div>
+            <div className="orbit-item orbit-item-2" title="React">
+              <SiReact style={{ color: "#22d3ee" }} />
+            </div>
+            <div className="orbit-item orbit-item-3" title="FastAPI">
+              <SiFastapi style={{ color: "#14b8a6" }} />
+            </div>
+          </div>
+
+          {/* Orbit Track 2 (Reverse counter-clockwise rotation) */}
+          <div className="orbit-track orbit-track-2">
+            <div className="orbit-item orbit-item-4" title="AI / PyTorch">
+              <SiPytorch style={{ color: "#ec4899" }} />
+            </div>
+            <div className="orbit-item orbit-item-5" title="PostgreSQL">
+              <SiPostgresql style={{ color: "#818cf8" }} />
+            </div>
+            <div className="orbit-item orbit-item-6" title="Machine Learning / AI">
+              <FaBrain style={{ color: "#a855f7" }} />
+            </div>
+          </div>
+
           <img src="/images/aashika-profile.png" alt="Aashika Kumari" className="landing-profile-image" />
         </div>
         {children}

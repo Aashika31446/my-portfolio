@@ -12,23 +12,58 @@ export function initialFX() {
     delay: 1,
   });
 
-  var landingText = new SplitText(
-    [".landing-info h3", ".landing-intro h2", ".landing-intro h1"],
-    {
-      type: "chars,lines",
-      linesClass: "split-line",
-    }
-  );
+  var introSub = new SplitText(".landing-intro h2", {
+    type: "chars,lines",
+    linesClass: "split-line",
+  });
   gsap.fromTo(
-    landingText.chars,
-    { opacity: 0, y: 80, filter: "blur(5px)" },
+    introSub.chars,
+    { opacity: 0, y: 30, filter: "blur(4px)" },
     {
       opacity: 1,
-      duration: 1.2,
+      duration: 0.8,
       filter: "blur(0px)",
-      ease: "power3.inOut",
+      ease: "power2.out",
       y: 0,
-      stagger: 0.025,
+      stagger: 0.03,
+      delay: 0.2,
+    }
+  );
+
+  // Smooth Typewriter / Letter-by-Letter focus reveal for AASHIKA KUMARI
+  var nameText = new SplitText(".landing-intro h1", {
+    type: "chars,words",
+    charsClass: "name-char",
+  });
+  gsap.fromTo(
+    nameText.chars,
+    { opacity: 0, scale: 0.8, filter: "blur(8px)", y: 20 },
+    {
+      opacity: 1,
+      scale: 1,
+      duration: 0.7,
+      filter: "blur(0px)",
+      ease: "power3.out",
+      y: 0,
+      stagger: 0.06, // Graceful letter-by-letter cascade
+      delay: 0.5,
+    }
+  );
+
+  var infoSub = new SplitText(".landing-info h3", {
+    type: "chars,lines",
+    linesClass: "split-line",
+  });
+  gsap.fromTo(
+    infoSub.chars,
+    { opacity: 0, y: 30, filter: "blur(4px)" },
+    {
+      opacity: 1,
+      duration: 0.8,
+      filter: "blur(0px)",
+      ease: "power2.out",
+      y: 0,
+      stagger: 0.03,
       delay: 0.3,
     }
   );
